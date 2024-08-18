@@ -1,21 +1,15 @@
-import Logo from './_components/Logo';
-import Description from "./_components/Description";
-import OpenLink from '../components/OpenLink';
+
+import { useSelector } from "react-redux";
+import FilterableProductTable from './_components/FilterProductTable';
 
 const Default = () => {
+    const defaultState = useSelector(state => state.default);
+    console.log(defaultState);
+
     return (
         <>
-            <header className="App-header">
-                <Logo />
-                <Description />
-                <OpenLink
-                    title="Learn React"
-                    url="https://react.dev/"
-                />
-                <OpenLink
-                    title="Mi proyecto react (Github)"
-                    url="https://github.com/dheeyi/desarrollo-frontend-react"
-                />
+            <header className="App-header">                
+                <FilterableProductTable products={defaultState}/>
             </header>
         </>
     );
